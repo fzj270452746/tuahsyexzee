@@ -1,0 +1,6 @@
+framework module Pods_tuahsyexzee {
+  umbrella header "Pods-tuahsyexzee-umbrella.h"
+
+  export *
+  module * { export * }
+}
