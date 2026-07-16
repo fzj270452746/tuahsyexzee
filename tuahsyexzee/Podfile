@@ -5,6 +5,7 @@ target 'tuahsyexzee' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for tuahsyexzee
+  pod 'ReachabilitySwift'
+#  pod 'Adjust'
 
 end
