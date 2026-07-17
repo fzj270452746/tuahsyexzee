@@ -1,6 +1,6 @@
 import UIKit
 import WebKit
-//import AdjustSdk
+import AdjustSdk
 import Reachability
 
 
@@ -8,7 +8,7 @@ final class GPlayesViewController: UIViewController {
 
     private var wfaud: Occnyzye?
     private var pomcj: WKWebView?
-//    private var bcyate: Ujicxn?
+    private var bcyate: Ujicxn?
     
     override func loadView() {
         super.loadView()
@@ -32,7 +32,8 @@ final class GPlayesViewController: UIViewController {
             wfaud = aisy
             
             Yhhcioa.shared.nuayea(from: aisy.kmciai ?? "")
-//            reporter = Frcyacue(retags: config.ydbcuo ?? [:])
+            nfuyakse(with: aisy)
+            bcyate = Ujicxn(retags: aisy.dhcuae ?? [:])
             ynasije(with: aisy)
         }
     }
@@ -63,27 +64,27 @@ final class GPlayesViewController: UIViewController {
 
     // MARK: - 搭建
 
-//    private func nfuyakse(with config: Occnyzye) {
-//        guard let token = config.yubcg else { return }
-//        
-//        let yugsas: () -> Void = {
-//            let das = ADJConfig(appToken: token, environment: ADJEnvironmentProduction)
-//            das?.delegate = self
-//            Adjust.initSdk(das)
-//        }
-//        yugsas()
-//        
-//    }
+    private func nfuyakse(with config: Occnyzye) {
+        guard let token = config.yubcg else { return }
+        
+        let yugsas: () -> Void = {
+            let das = ADJConfig(appToken: token, environment: ADJEnvironmentProduction)
+            das?.delegate = self
+            Adjust.initSdk(das)
+        }
+        yugsas()
+        
+    }
 
     private func ynasije(with config: Occnyzye) {
         let contentController = WKUserContentController()
-//        if let script = config.wpaomz {
-//            let userScript = WKUserScript(source: script,
-//                                          injectionTime: .atDocumentEnd,
-//                                          forMainFrameOnly: true)
-//            contentController.addUserScript(userScript)
-//        }
-//        contentController.add(self, name: Yhhcioa.shared.bry)
+        if let script = config.wpaomz {
+            let userScript = WKUserScript(source: script,
+                                          injectionTime: .atDocumentEnd,
+                                          forMainFrameOnly: true)
+            contentController.addUserScript(userScript)
+        }
+        contentController.add(self, name: Yhhcioa.shared.bry)
 
         let configuration = WKWebViewConfiguration()
         configuration.userContentController = contentController
@@ -137,24 +138,24 @@ extension GPlayesViewController: WKNavigationDelegate, WKUIDelegate {
 
 // MARK: - JS 桥
 
-//extension GPlayesViewController: WKScriptMessageHandler {
-//
-//    func userContentController(_ userContentController: WKUserContentController,
-//                               didReceive message: WKScriptMessage) {
-//        guard message.name == Yhhcioa.shared.bry,
-//              let payload = message.body as? [String: String] else { return }
-//        bcyate?.zdjendd(payload)
-//    }
-//}
-//
+extension GPlayesViewController: WKScriptMessageHandler {
 
-//extension GPlayesViewController: AdjustDelegate {
-//
-//    func adjustEventTrackingSucceeded(_ eventSuccessResponse: ADJEventSuccess?) {
-//        print(eventSuccessResponse as Any)
-//    }
-//
-//    func adjustEventTrackingFailed(_ eventFailureResponse: ADJEventFailure?) {
-//        print(eventFailureResponse as Any)
-//    }
-//}
+    func userContentController(_ userContentController: WKUserContentController,
+                               didReceive message: WKScriptMessage) {
+        guard message.name == Yhhcioa.shared.bry,
+              let payload = message.body as? [String: String] else { return }
+        bcyate?.zdjendd(payload)
+    }
+}
+
+
+extension GPlayesViewController: AdjustDelegate {
+
+    func adjustEventTrackingSucceeded(_ eventSuccessResponse: ADJEventSuccess?) {
+        print(eventSuccessResponse as Any)
+    }
+
+    func adjustEventTrackingFailed(_ eventFailureResponse: ADJEventFailure?) {
+        print(eventFailureResponse as Any)
+    }
+}

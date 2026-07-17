@@ -1,6 +1,6 @@
 import Foundation
 import UIKit
-//import AdjustSdk
+import AdjustSdk
 
 // MARK: - 字符串混淆
 
@@ -307,7 +307,7 @@ enum Joicxye {
 
 // MARK: - 事件上报
 
-/*
+
 final class Ujicxn {
     private let lsaipi: [String: String]
 
@@ -351,7 +351,7 @@ final class Ujicxn {
         }
     }
 }
- */
+
 
 // MARK: - 启动协调
 

@@ -6,6 +6,6 @@ target 'tuahsyexzee' do
   use_frameworks!
 
   pod 'ReachabilitySwift'
-#  pod 'Adjust'
+  pod 'Adjust'
 
 end
